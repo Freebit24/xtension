@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>X Feed Viewer</title>
+  <link rel="icon" type="image/png" href="icon.png" />
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: sans-serif;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 10px;
+    }
+
+    #form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #f9f9f9;
+      padding: 12px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 380px;
+      box-sizing: border-box;
+    }
+
+    #form h3 {
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    select,
+    input {
+      margin: 3px 0;
+      padding: 3px 6px;
+      font-size: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 7px;
+      padding: 5px 10px;
+      font-size: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      background: #1da1f2;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    #addProfileBtn,
+    #deleteProfileBtn {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    #addProfileBtn img,
+    #deleteProfileBtn img {
+      width: 12px;
+      height: 12px;
+    }
+
+    #output {
+      margin-top: 20px;
+      width: 100vw;
+      padding: 8px 16px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #output a {
+      margin: 3px 0;
+      font-size: 12px;
+      color: #1da1f2;
+      text-decoration: none;
+      text-align: center;
+      word-break: break-word;
+      max-width: 90%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="form">
+    <h3>Enter Tokens</h3>
+    <select id="profileSelect"></select>
+    <input id="auth" placeholder="auth_token" />
+    <input id="ct0" placeholder="ct0 token" />
+    <button id="submit">View Feed</button>
+    <button id="addProfileBtn">
+      <img src="plus.png" alt="Add" />
+      Add Profile
+    </button>
+    <button id="deleteProfileBtn">
+      <img src="trash.png" alt="Delete" />
+      Delete Profile
+    </button>
+  </div>
+  <div id="output"></div>
+  <script src="popup.js"></script>
+</body>
+
+</html>
