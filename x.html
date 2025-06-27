@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweet Embed Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #f5f8fa;
+        }
+        .tweet-container {
+            width: 100%;
+            max-width: 550px;
+            margin: 20px;
+        }
+        .error-message {
+            color: #e0245e;
+            padding: 15px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="tweet-container">
+        <h2>Tweet Embed Demo</h2>
+        
+        <!-- Twitter Embed -->
+        <blockquote class="twitter-tweet" data-lang="en" data-theme="light">
+            <a href="https://twitter.com/TwitterDev/status/1603823063690199040"></a>
+        </blockquote>
+        
+        <!-- Fallback message (hidden by default) -->
+        <div id="tweet-error" class="error-message">
+            Tweet failed to load. Please check your internet connection or try again later.
+        </div>
+    </div>
+
+    <!-- Twitter Widgets Script with improved loading detection -->
+    <script>
+        window.twttr = (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            js.async = true;
+            fjs.parentNode.insertBefore(js, fjs);
+            
+            t._e = [];
+            t.ready = function(f) {
+                t._e.push(f);
+            };
+            
+            return t;
+        }(document, "script", "twitter-wjs"));
+
+        // Improved tweet load detection
+        document.addEventListener('DOMContentLoaded', function() {
+            var checkTweet = setInterval(function() {
+                var tweets = document.getElementsByClassName("twitter-tweet");
+                if (tweets.length > 0) {
+                    // Check if Twitter's iframe has been created
+                    if (tweets[0].querySelector('iframe')) {
+                        clearInterval(checkTweet);
+                        // Hide error message if tweet loaded
+                        document.getElementById("tweet-error").style.display = "none";
+                    }
+                }
+            }, 200);
+            
+            // Final check after 3 seconds
+            setTimeout(function() {
+                clearInterval(checkTweet);
+                var tweets = document.getElementsByClassName("twitter-tweet");
+                if (tweets.length > 0 && !tweets[0].querySelector('iframe')) {
+                    document.getElementById("tweet-error").style.display = "block";
+                }
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
