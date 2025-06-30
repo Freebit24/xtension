@@ -76,7 +76,7 @@ def fetch_feed():
             },
         )
 
-        print(f"STATUS: {response.status_code}")
+        # print(f"STATUS: {response.status_code}")
 
         if response.status_code != 200:
             print("RESPONSE TEXT:", response.text)
