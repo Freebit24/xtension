@@ -11,73 +11,97 @@
       padding: 0;
       height: 100%;
       width: 100%;
-      font-family: sans-serif;
-      background: #ffffff;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-size: 10px;
+      font-size: 14px;
     }
 
     #form {
-      margin-top: 20px;
+      margin-top: 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: #f9f9f9;
-      padding: 12px;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+      background: #161b22;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
       width: 100%;
-      max-width: 380px;
+      max-width: 400px;
       box-sizing: border-box;
     }
 
     #form h3 {
-      margin-bottom: 8px;
-      font-size: 14px;
+      margin-bottom: 12px;
+      font-size: 16px;
+      color: #58a6ff;
     }
 
     select,
     input {
-      margin: 3px 0;
-      padding: 3px 6px;
-      font-size: 10px;
+      margin: 6px 0;
+      padding: 10px;
+      font-size: 14px;
       width: 100%;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      background: #0d1117;
+      color: #c9d1d9;
+      border: 1px solid #30363d;
+      border-radius: 6px;
       box-sizing: border-box;
     }
 
     button {
-      margin-top: 7px;
-      padding: 5px 10px;
-      font-size: 10px;
-      cursor: pointer;
+      margin-top: 10px;
+      padding: 10px 16px;
+      font-size: 14px;
       font-weight: bold;
-      background: #1da1f2;
+      background: #238636;
       color: white;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    button:hover {
+      background: #2ea043;
+      transform: translateY(-1px);
     }
 
     #addProfileBtn,
     #deleteProfileBtn {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
+      background: #1f6feb;
+    }
+
+    #addProfileBtn:hover,
+    #deleteProfileBtn:hover {
+      background: #388bfd;
+    }
+
+    #deleteProfileBtn {
+      background: #da3633;
+    }
+
+    #deleteProfileBtn:hover {
+      background: #f85149;
     }
 
     #addProfileBtn img,
     #deleteProfileBtn img {
-      width: 12px;
-      height: 12px;
+      width: 16px;
+      height: 16px;
     }
 
     #output {
-      margin-top: 20px;
+      margin-top: 24px;
       width: 100vw;
-      padding: 8px 16px;
+      padding: 10px 16px;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
@@ -85,13 +109,16 @@
     }
 
     #output a {
-      margin: 3px 0;
-      font-size: 12px;
-      color: #1da1f2;
+      margin: 4px 0;
+      font-size: 13px;
+      color: #58a6ff;
       text-decoration: none;
-      text-align: center;
       word-break: break-word;
       max-width: 90%;
+    }
+
+    #output a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
