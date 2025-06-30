@@ -78,3 +78,6 @@ source venv/bin/activate      # macOS/Linux
 venv\Scripts\activate         # Windows
 pip install -r requirements.txt
 python app.py
+```
+
+The server runs at http://localhost:5000 and must be active for the extension to fetch tweets.
