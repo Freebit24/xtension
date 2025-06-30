@@ -1,4 +1,4 @@
-# X-Feed Viewer Extension
+# Public X-Feed Viewer Extension
 
 A Chrome/Firefox browser extension to view the **X (formerly Twitter)** home feed of any public user who shares their token with you. This tool is intended for read-only access to simulate how someone else's feed looks — just like peeking into their timeline (with permission).
 
