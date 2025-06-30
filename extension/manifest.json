@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "X Feed Viewer",
+  "name": "Public Twitter Feed Viewer",
   "version": "1.0",
   "permissions": ["tabs"],
   "background": {
