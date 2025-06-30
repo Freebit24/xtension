@@ -6,7 +6,6 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-
 @app.route("/fetch-feed", methods=["POST"])
 def fetch_feed():
     try:
@@ -94,20 +93,29 @@ def fetch_feed():
                     .get("tweet_results", {})
                     .get("result")
                 )
-                if tweet_item:
-                    tweet_id = tweet_item.get("legacy", {}).get("id_str")
-                    username = (
-                        tweet_item.get("core", {})
-                        .get("user_results", {})
-                        .get("result", {})
-                        .get("legacy", {})
-                        .get("screen_name", "unknown")
-                    )
-                    if tweet_id and username:
-                        tweet_url = f"https://x.com/{username}/status/{tweet_id}"
-                        collected_links.append(tweet_url)
-                        if len(collected_links) >= 20:
-                            break
+                if not tweet_item:
+                    continue
+
+                tweet_id = tweet_item.get("legacy", {}).get("id_str")
+                user_result = (
+                    tweet_item.get("core", {})
+                    .get("user_results", {})
+                    .get("result", {})
+                )
+
+                username = (
+                    user_result.get("legacy", {}).get("screen_name")
+                    or user_result.get("core", {}).get("screen_name")
+                )
+
+                if not tweet_id or not username:
+                    continue
+
+                tweet_url = f"https://x.com/{username}/status/{tweet_id}"
+                collected_links.append(tweet_url)
+
+                if len(collected_links) >= 20:
+                    break
             if len(collected_links) >= 20:
                 break
 
