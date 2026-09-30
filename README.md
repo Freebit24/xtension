@@ -5,8 +5,16 @@ A Chrome/Firefox browser extension to view the **X (formerly Twitter)** home fee
 ## 🔍 Problem Statement
 
 > Build a **browser extension** that simulates any public user's X feed using their shared login token. The goal is to enable **view-only access** to see what tweets and content your friend sees.
+> 
+## 🦾Why I built this
 
----
+I noticed that when friends recommended posts or discussed what was
+appearing on their X timelines, there was no convenient way to inspect
+the feed experience they were seeing without asking for screenshots.
+
+I wanted to make that comparison easier, so I built a read-only browser
+extension that allows authorized users to switch between feed contexts
+and inspect the resulting timeline.
 
 ## 🧠 Features
 
@@ -81,3 +89,5 @@ python app.py
 ```
 
 The server runs at http://localhost:5000 and must be active for the extension to fetch tweets.
+
+
